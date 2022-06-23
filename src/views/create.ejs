@@ -1,0 +1,26 @@
+<%- include('header') %>
+
+  <div class="container">
+    <h2 class="mt-5 mb-3">Create a new user</h2>
+    <form action="/v1/user/create" method="post">
+      <div class="mb-3">
+        <label for="inputTask">Username:</label>
+        <input autofocus type="text" class="form-control shadow-none mb-3" id="inputUser" name="name" value="<%= user.name %>">
+        <% if (UserError) { %>
+          <div class="text-danger mb-3"><%= UserError %></div>
+        <% } %>
+        <label for="inputStatus">Email:</label>
+        <input type="text" class="form-control shadow-none mb-3" id="inputEmail" name="email" value="<%= user.email %>">
+        <% if (EmailError) { %>
+          <div class="text-danger mb-3"><%= EmailError %></div>
+        <% } %>
+        <% if (UserAndEmail) { %>
+          <div class="text-danger mb-3"><%= UserAndEmail %></div>
+        <% } %>
+      </div>         
+      <button type="submit" class="btn btn-primary">Add</button>
+      <a class="btn btn-outline-dark cancel" href="/v1/user">Cancel</a>
+    </form>
+  </div>
+
+<%- include('footer') %>

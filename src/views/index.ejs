@@ -1,0 +1,30 @@
+<%- include('header') %> 
+
+<div class="container">
+  <h2 class="mt-5 mb-3">Users List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th class="d-print-none">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const user of users) { %>
+      <tr>
+        <td><%= user.name %></td>
+        <td class="status"><%= user.email %></td>
+        <td class="d-print-none">
+          <a class="btn btn-sm btn-warning" href="/v1/user/update/<%= user.id %>">Update</a>
+          <a class="btn btn-sm btn-danger" href="/v1/user/delete/<%= user.id %>">Delete</a>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('footer') %> 

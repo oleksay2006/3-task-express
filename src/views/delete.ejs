@@ -1,0 +1,17 @@
+<%- include('header') %>
+
+<div class="container">
+  <h2 class="mt-5 mb-3">Delete user</h2>
+  <form action="/v1/user/delete/<%= user.id %>" method="post">
+    <div class="mb-3">
+      <label for="inputUser">User:</label>
+      <input readonly autofocus type="text" class="form-control shadow-none mb-3" id="inputUser" name="User" value="<%= user.name %>">
+      <label for="inputEmail">Email:</label>
+      <input readonly autofocus type="text" class="form-control shadow-none mb-3" id="inputEmail" name="Email" value="<%= user.email %>">
+    </div>         
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-outline-dark cancel" href="/v1/user">Cancel</a>
+  </form>
+</div>
+
+<%- include('footer') %>
